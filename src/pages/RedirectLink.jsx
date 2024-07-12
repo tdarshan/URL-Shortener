@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { storeClicks } from "@/db/apiClicks";
 import { getLongUrl } from "@/db/apiUrls";
 import useFetch from "@/hooks/useFetch";
@@ -23,7 +24,6 @@ const RedirectLink = () => {
     if (!loading && data) {
       fnStats();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   if (loading || loadingStats) {
