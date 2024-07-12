@@ -42,7 +42,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-blue-300 text-2xl font-extrabold hover:underline cursor-pointer">
-          https://trimmy.com/{url?.custom_url ? url?.custom_url : url?.short_url}
+        {import.meta.env.VITE_SITE_URL}/{url?.custom_url ? url?.custom_url : url?.short_url}
         </span>
         <span className="text-white flex items-center gap-1 hover:underline cursor-pointer">
           {url?.original_url}
@@ -55,7 +55,7 @@ const LinkCard = ({ url, fetchUrls }) => {
       <div className="flex gap-4">
         <Button
           onClick={() => {
-            navigator.clipboard.writeText(`https://trimmy.com/${url?.custom_url ? url?.custom_url : url?.short_url}`);
+            navigator.clipboard.writeText(`${import.meta.env.VITE_SITE_URL}/${url?.custom_url ? url?.custom_url : url?.short_url}`);
           }}
         >
           <CopyIcon></CopyIcon>
