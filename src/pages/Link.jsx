@@ -31,7 +31,7 @@ const Link = () => {
 
 
   const { id } = useParams();
-  const { user } = UrlState();
+  const { user, siteOrigin } = UrlState();
   const navigate = useNavigate();
 
 
@@ -86,11 +86,11 @@ const Link = () => {
           </span>
 
           <a
-            href={`${import.meta.env.VITE_SITE_URL}/${link}`}
+            href={`${siteOrigin}/${link}`}
             target="_blank"
             className="text-2xl sm:text-3xl text-blue-300 font-bold hover:underline cursor-pointer"
           >
-            {import.meta.env.VITE_SITE_URL}/{link}
+            {siteOrigin}/{link}
           </a>
           <a
             href={url?.original_url}
