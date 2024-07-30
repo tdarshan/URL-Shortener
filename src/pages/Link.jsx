@@ -71,6 +71,10 @@ const Link = () => {
     document.body.removeChild(anchor);
   }
 
+  const redirectToDashboard = () => {
+    navigate("/dashboard");
+  }
+
 
   return (
     <>
@@ -107,7 +111,7 @@ const Link = () => {
           <div className="flex gap-4">
             <Button
               onClick={() => {
-                navigator.clipboard.writeText(`https://trimmy.com/${url?.custom_url ? url?.custom_url : url?.short_url}`);
+                navigator.clipboard.writeText(`${siteOrigin}/${url?.custom_url ? url?.custom_url : url?.short_url}`);
               }}
             >
               <CopyIcon></CopyIcon>
@@ -115,7 +119,7 @@ const Link = () => {
             <Button onClick={downloadImage}>
               <DownloadIcon></DownloadIcon>
             </Button>
-            <Button onClick={() => fnDelete()}>
+            <Button onClick={() => fnDelete().then(() => redirectToDashboard())}>
               {loadingDelete ? <BeatLoader color="white" size={5} /> : <TrashIcon />}
             </Button>
           </div>

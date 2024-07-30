@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -18,7 +19,7 @@ import { UrlState } from "@/context";
 
 const CreateLink = () => {
 
-    const { user } = UrlState();
+    const { user, siteOrigin } = UrlState();
     const navigate = useNavigate();
 
     const ref = useRef();
@@ -118,7 +119,7 @@ const CreateLink = () => {
                 { errors.longUrl &&  <Error message={errors.longUrl} />}
 
                 <div className="flex items-center gap-2">
-                    <Card className="p-2">trimmy.in</Card>
+                    <Card className="p-2"> {siteOrigin}/ </Card>
                     <Input id="customUrl" placeholder="Custom Link (Optional)" />
                 </div>
 
